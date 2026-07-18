@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bb-darkest: #020e08;
+  --bb-dark-1: #061a12;
+  --bb-dark-2: #0c2a1c;
+  --bb-dark-3: #133526;
+  --bb-green-1: #1a5c3a;
+  --bb-green-2: #22805a;
+  --bb-green-light: #2ecc88;
+  --bb-green-glow: #34d399;
+  --bb-amber: #d4a843;
+  --bb-amber-light: #e8c468;
+  --bb-amber-muted: #a17e32;
+  --bb-text-main: #e8ece9;
+  --bb-text-secondary: #b0bfb8;
+  --bb-text-muted: #7a8f85;
+  --bb-border-subtle: rgba(26, 92, 58, 0.3);
+  --bb-border-medium: rgba(26, 92, 58, 0.6);
+  --bb-shadow-color: rgba(2, 14, 8, 0.6);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bb-darkest);
+  color: var(--bb-text-main);
+  font-family: var(--font-body), sans-serif;
+  background-image: radial-gradient(
+      circle at 20% 0%,
+      rgba(46, 204, 136, 0.08),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(212, 168, 67, 0.05),
+      transparent 40%
+    );
+}
+
+::selection {
+  background-color: var(--bb-green-light);
+  color: var(--bb-darkest);
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--bb-green-light);
+}
+
+.section-pad {
+  padding: 6rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .section-pad {
+    padding: 8rem 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-pad {
+    padding: 8rem 5rem;
+  }
+}
+
+.card {
+  background-color: rgba(19, 53, 38, 0.4);
+  border: 1px solid var(--bb-border-subtle);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+}
+
+.terminal-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+}
+
+.bb-dot-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(46, 204, 136, 0.18) 1px, transparent 0);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(#000 25%, transparent 85%);
+  mask-image: radial-gradient(#000 25%, transparent 85%);
+}
+
+.timeline-dot-active {
+  background-color: var(--bb-green-light);
+  box-shadow: 0 0 10px var(--bb-green-glow);
+}
+
+@keyframes fast-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.fast-blink {
+  animation: fast-blink 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes rising {
+  0% {
+    opacity: 0;
+    transform: translate(-50%) scale(1);
+  }
+  20% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate3d(calc(-50% + var(--dx, 20px)), -40vh, 0) scale(2);
+  }
+  80% {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(calc(-50% - var(--dx, 20px)), -120vh, 0) scale(4);
+  }
+}
+
+.vapor {
+  animation: rising 5s linear infinite;
+  backface-visibility: hidden;
+  background: radial-gradient(circle, var(--bb-green-2), transparent 70%);
+  border-radius: 50%;
+  bottom: -50px;
+  filter: blur(40px);
+  left: 50%;
+  min-height: 150px;
+  min-width: 150px;
+  opacity: 0;
+  perspective: 1000px;
+  position: absolute;
+  transform: translate(-50%) scale(1);
+  will-change: transform, opacity;
+}
+
+.vapor:nth-child(2n) {
+  --dx: 40px;
+  animation-duration: 6s;
+  animation-delay: -2s;
+}
+
+.vapor:nth-child(3n) {
+  --dx: -30px;
+  animation-duration: 4s;
+  animation-delay: -1s;
+}
+
+.vapor:nth-child(4n) {
+  --dx: 50px;
+  animation-duration: 7s;
+  animation-delay: -3.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--bb-green-light);
+  outline-offset: 3px;
+}
+
+/* ── DaisyUI-compatible utility shims ──────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  border: none;
+  color: var(--bb-text-secondary);
+}
+
+.btn-ghost:hover {
+  background-color: var(--bb-dark-3);
+  color: white;
+}
+
+.btn-square {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
