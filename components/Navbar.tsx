@@ -6,9 +6,9 @@ import PeriodicElement from "./PeriodicElement";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { symbol: "Pr", number: 59, mass: 140.9, name: "Praseodymium", suffix: "ojects",    href: "#projects" },
   { symbol: "Se", number: 34, mass: 78.97, name: "Selenium",     suffix: "rvices",    href: "#services" },
-  { symbol: "St", number: 16, mass: 32.07, name: "Sulfur",       suffix: "ack",       href: "#stack"    },
+  { symbol: "S",  number: 16, mass: 32.06, name: "Sulfur",       suffix: "tack",      href: "#stack"    },
+  { symbol: "Pr", number: 59, mass: 140.9, name: "Praseodymium", suffix: "ojects",    href: "#projects" },
   { symbol: "Pr", number: 59, mass: 140.9, name: "Praseodymium", suffix: "ocess",     href: "#process"  },
   { symbol: "Co", number: 27, mass: 58.93, name: "Cobalt",       suffix: "ntact",     href: "#contact"  },
 ];
