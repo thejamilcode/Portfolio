@@ -28,7 +28,7 @@ export default function Navbar() {
       <nav className="container mx-auto flex justify-between items-center px-4 py-4 max-w-7xl">
 
         {/* ── Logo: Ja[Mi]l ── */}
-        <a href="#top" className="flex items-center text-xl font-bold text-white">
+        <a href="#top" aria-label="Jamil Ahmed Portfolio Home" className="flex items-center text-xl font-bold text-white">
           <PeriodicElement
             prefix="Ja"
             symbol="Mi"
@@ -46,6 +46,7 @@ export default function Navbar() {
             <a
               key={item.symbol}
               href={item.href}
+              aria-label={`${item.symbol}${item.suffix}`}
               className="btn btn-ghost text-[var(--bb-text-secondary)] hover:text-white hover:bg-[var(--bb-dark-3)]/60 px-3 py-2 rounded-lg transition-all duration-200"
             >
               <PeriodicElement
@@ -98,6 +99,7 @@ export default function Navbar() {
             <a
               key={item.symbol}
               href={item.href}
+              aria-label={`${item.symbol}${item.suffix}`}
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center text-[var(--bb-text-secondary)] hover:text-white py-1"
             >
