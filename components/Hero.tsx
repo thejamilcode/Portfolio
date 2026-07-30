@@ -122,6 +122,9 @@ export default function Hero() {
       id="top"
       className="relative h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden bg-[var(--bb-darkest)]"
     >
+      {/* Visually hidden H1 for SEO compliance */}
+      <h1 className="sr-only">Jamil Ahmed — Backend Developer (Django) & WordPress Expert</h1>
+
       {/* ── Site-palette background — greens + amber, no external image ─ */}
       <div
         className="absolute inset-0 scale-110"

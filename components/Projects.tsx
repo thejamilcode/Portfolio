@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { projects, Project } from "@/lib/data";
@@ -158,11 +159,15 @@ export default function Projects() {
                         {/* Webcam */}
                         <div className="absolute top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-black z-10" />
                         {/* Screen Content */}
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
-                        />
+                        {project.image && (
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            width={320}
+                            height={200}
+                            className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                          />
+                        )}
                       </div>
                       {/* Laptop Base */}
                       <div className="w-[110%] h-2 bg-zinc-700 rounded-b-md relative shadow-md">

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { contact } from "@/lib/data";
@@ -18,10 +19,13 @@ export default function About() {
             <div className="relative group">
               <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-[var(--bb-green-2)] via-[var(--bb-green-1)] to-[var(--bb-amber-muted)] opacity-25 group-hover:opacity-45 blur-md transition-opacity duration-700" />
               <div className="relative w-56 h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden border-2 border-[var(--bb-green-1)]/60 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
-                <img
+                <Image
                   src="/images/jamil.jpg"
                   alt="Jamil Ahmed"
+                  width={256}
+                  height={256}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--bb-darkest)]/30 to-transparent" />
               </div>

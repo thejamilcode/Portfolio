@@ -39,6 +39,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Jamil Ahmed", url: siteUrl }],
   creator: "Jamil Ahmed",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     url: siteUrl,
